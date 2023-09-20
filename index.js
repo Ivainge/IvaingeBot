@@ -6,7 +6,7 @@ const {randomNumberGameOptions, againRandomNumberGameOptions} = require('./optio
 
 let myArray = []
 
-let storagejsonraw = fs.readFileSync('./storage.json');
+let storagejsonraw = fs.readFileSync('./db.json');
 let storagejson = JSON.parse(storagejsonraw);
 myArray = storagejson;
 
@@ -31,7 +31,7 @@ bot.on('message', async msg => {
     const chatId = msg.chat.id;
     const username = msg.chat.username;
     let startbotflag = 0; 
-    let storagejsonraw = fs.readFileSync('./storage.json');
+    let storagejsonraw = fs.readFileSync('./db.json');
     let storagejson = JSON.parse(storagejsonraw);
     myArray = storagejson;
 
@@ -65,7 +65,7 @@ bot.on('message', async msg => {
 
     if(flag == 0) {
         myArray.push(chatId);
-        fs.writeFile('./storage.json', JSON.stringify(myArray),
+        fs.writeFile('./db.json', JSON.stringify(myArray),
             function (err) {
                 if (err) {
                     console.error('Crap happens');

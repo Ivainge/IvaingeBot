@@ -1,4 +1,4 @@
 .env
 .idea
 node_modules
-storage.json
+db.json
